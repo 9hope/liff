@@ -9,6 +9,7 @@
 <body>
   <h1>Hello World!</h1>
   <p id="param"><b>Query Param: </b></p>
+  <p id="accessToken"><b>AccessToken:</b> </p>
   <img id="pictureUrl">
   <p id="userId"><b>userId:</b> </p>
   <p id="displayName"><b>displayName:</b> </p>
@@ -36,6 +37,7 @@
     async function main() {
       await liff.init({ liffId: "1655053763-x5zpZKV4" })
       if (liff.isLoggedIn()) {
+        document.getElementById("accessToken").append(liff.getAccessToken())
         getUserProfile()
       } else {
         liff.login({ redirectUri: "https://9hope.github.io/liff/path" })
